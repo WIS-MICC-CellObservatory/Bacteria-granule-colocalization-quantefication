@@ -48,4 +48,5 @@ The macro saves the following output files (see below for details):
 
 ## User Guide
 •	Run the code, upon which UI will open:
+
 ![image](https://github.com/danidean/Bacteria-granule-quantefication/assets/11374080/922f8a8d-fc02-4358-a311-2dc6f65c5940)
