@@ -20,4 +20,4 @@ Granules were then segmented based on connected component analysis of a mask of 
 Manual correction was applied to correct the segmentation of some missed or falsely detected bacteria. (Fiji macro: quantitative_estimation_of_granules_in_bacteria.ijm)
 The size and number of all valid bacteria and granules were extracted and used for further analysis.
 
-![Bacteria-Granule images] (Screenshot%202023-09-18%20110308.png "Bacteria Ganule segmentation")
+![Alt text] (Screenshot%202023-09-18%20110308.png "Bacteria Ganule segmentation")
