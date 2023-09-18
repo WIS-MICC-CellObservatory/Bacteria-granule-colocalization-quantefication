@@ -83,3 +83,23 @@ The above described process correctly segments most of the bacteria. Additional,
 
 ![image](https://github.com/danidean/Bacteria-granule-quantefication/assets/11374080/f3de54a2-39cc-4cc3-867a-daaf7c3959dc)
 
+In Update mode the macro skips the segmentation, instead it gets the segmented ROIs from a file, and calculate their updated measurements. The ROIs are read either from manually updated file (naming convention –  FN_Fused_Raw_Bacteria_Roi_Update.zip if exist) or otherwise from the original file (FN_Fused_Raw_Bacteria_Roi.zip).
+The manual correction is done offline and the update ROI file (uploads into imageJ/Fiji roiMnanger) is appended with the “_Update” suffix (see example above) to distinguish it from the original model-based segmentation/classification.
+
+## Output
+-	Three tables:
+	Bacteria summary table with data including size, number of granule residing in the bacteria and corresponding mean size. A table per file (FN__Fused_Granule_Results_Table.txt).
+	Granule summary table with data corresponding to their estimated size and a "link" to the bacteria they reside in. A table per file (FN__Fused_Bacteria_Results_Table.txt).
+	A "Summary Report Table" that stores information for all the files processed. The metrics stored correspond to the number of bacteria and granule after segmentation and following filtering (FN_ Summary_Report_Table.txt). 
+Additionally, it includes a flag indicating whether the image processed resulted in detected bacteria or granule, or no bacteria/granule where detected.
+-	Two ROI files (imagej/Fiji roiManager tables): 
+	 ROIs corresponding to the bacteria and granules
+(FN_Bacteria_Roi.zip, FN_Granule_In_Bacteria_Roi.zip, respectively).
+-	Two images:
+	Model-segmented image (FN_classified.tif)
+	Raw image overplayed with bacteria + granule ROIs (overlayed_img_FN.tif). 
+
+## References
+[1] Preibisch S, Saalfeld S, Tomancak P. Globally optimal stitching of tiled 3D microscopic image acquisitions. Bioinformatics. 2009 Jun 1;25(11):1463-5. doi: 10.1093/bioinformatics/btp184. Epub 2009 Apr 3. PMID: 19346324; PMCID: PMC2682522. 
+[2] Stuart Berg, Dominik Kutra, Thorben Kroeger, Christoph N. Straehle, Bernhard X. Kausler, Carsten Haubold, Martin Schiegg, Janez Ales, Thorsten Beier, Markus Rudy, Kemal Eren, Jaime I Cervantes, Buote Xu, Fynn Beuttenmueller, Adrian Wolny, Chong Zhang, Ullrich Koethe, Fred A. Hamprecht & Anna Kreshuk.  ilastik: interactive machine learning for (bio)image analysis. Nat Methods 16, 1226–1232 (2019). https://doi.org/10.1038/s41592-019-0582-9 
+[3] Schindelin, J., Arganda-Carreras, I., Frise, E., Kaynig, V., Longair, M., Pietzsch, T., … Cardona, A. (2012). Fiji: an open-source platform for biological-image analysis. Nature Methods, 9(7), 676–682. doi:10.1038/nmeth.2019
