@@ -25,14 +25,14 @@ The size and number of all valid bacteria and granules were extracted and used f
 ## Workflow
 1.	Open selected image
 2.	Segment the bacteria and granules
-  * Apply ilastik autocontext classifier to obtain segmentation map model
-  * Segment bacteria using thresholding (default) applied to the segmentation map, to output a binary mask followed by hole filling.
-  * Filter the masked bacteria ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs. 
-  * Run Roi to label image on the bacteria ROIs to generate bacteria labeled image.
-  * Segment the granules using thresholding (default) to the segmentation map, to output binary mask.
-  * Filter the masked granules ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs.  Apply granules-bacteria colocalization analysis by applying (measuring)   
+*  Apply ilastik autocontext classifier to obtain segmentation map model
+* Segment bacteria using thresholding (default) applied to the segmentation map, to output a binary mask followed by hole filling.
+* Filter the masked bacteria ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs. 
+* Run Roi to label image on the bacteria ROIs to generate bacteria labeled image.
+* Segment the granules using thresholding (default) to the segmentation map, to output binary mask.
+* Filter the masked granules ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs.  Apply granules-bacteria colocalization analysis by applying (measuring)   
     granules ROIs on bacteria labeled image. This step colocalizes the granules to their respective bacteria.
-  * Obtain the area of each granule, the number of granules per bacteria and the average size of the granules per bacteria.
+* Obtain the area of each granule, the number of granules per bacteria and the average size of the granules per bacteria.
 
 
 ## Output
