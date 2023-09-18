@@ -54,7 +54,7 @@ The macro saves the following output files (see below for details):
 ## INPUT
 •	Two runs modes are applicable, “directory mode" or “single mode".
 -	Directory mode - identifies all the relevant images to be processed and process a file at a time
--	Single mode - a signle file is selected for processing.
+-	Single mode - a single file is selected for processing.
 •	Classification is based on a pretrained ilastik model. The path to the ilastik app and model should be provided
 •	Several Program-run-modes "degrees of freedom" are provided for processing:
 -	Use pre/post classification images
