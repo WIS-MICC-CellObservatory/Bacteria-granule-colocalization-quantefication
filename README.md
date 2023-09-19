@@ -21,7 +21,7 @@ Manual correction was applied to correct the segmentation of some missed or fals
 The size and number of all valid bacteria and granules were extracted and used for further analysis.
 
 ![image](https://github.com/danidean/Bacteria-granule-quantefication/assets/11374080/16f563e4-48ad-4e2e-afca-e657ec6ac1ff)
-
+<!-- https://github.com/danidean/Bacteria-granule-quantefication/assets/11374080/16f563e4-48ad-4e2e-afca-e657ec6ac1ff -->
 ## Workflow
 1.	Open selected image
 2.	Segment the bacteria and granules
