@@ -1,4 +1,4 @@
-# Bacteria-granule-colacalization-quantefication 
+# Bacteria-granule-colocalization-quantefication 
 ## Size quantification and distribution of Polyphosphate-like granules (pPLGs) located within Deinococcus indicus bacteria
 
 
