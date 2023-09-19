@@ -123,14 +123,6 @@
  var unclssified_segmentation_label = 4;
  
  
- 
-  /* Image Parameters */
-// var pixel_width; // = 0.0066636;
-//  var pixel_height; // = 0.0066636;
-
- // var size_factor;
- 
- 
  /*  *** Input GUI *** */
 #@ String (label="Process Mode", choices=("Single File", "Whole Folder"), style="list", persist = true) project_process_mode
 #@ File (label="Input Directory", style = "directory", persist=true, description="Select File input dir of Analysis") input_dir // image_input_dir// file_input_dir
@@ -198,26 +190,9 @@ Setup();
 Initialize();
 
 main();
-
-
-/***
-if(LoopFiles())
-	print("Macro ended successfully");
-else
-	print("Macro failed");
-***/
-
-
-
-
- /* ----- This part will be in the processing part ----- */
-		
-// waitForUser(" *** Completed Run *** ");
 		
 /*  *** Functions *** */
 /*--------------------*/
-
-
 
 function Cleanup() 
 {		
@@ -292,7 +267,6 @@ function clear_Img_Prefixed_Resultes_Tables()
 	}	
 	
 	filename = prev_img_name_no_ext + "_" + Mean_Bact_Gran_Area_Table + ".txt";
-	// // waitForUser("Delete prev_img_name_no_ext = " + filename);
 	if (isOpen(filename))
 	{
 		selectWindow(filename);
@@ -316,17 +290,12 @@ function Initialize()
 	bactaria_size_lim = newArray(parseFloat(bactaria_size_intarval.substring(0, ii)), parseFloat(bactaria_size_intarval.substring(ii+1, bactaria_size_intarval.length))); // 20230416 Added parseFloat to bactaria_size_lim
 	ii = granule_size_intarval.indexOf("/");
 	granule_size_lim = newArray(parseFloat(granule_size_intarval.substring(0, ii)), parseFloat(granule_size_intarval.substring(ii+1, granule_size_intarval.length)));
-	
-	/* Get pixel dimensions */
-	// pixel_width = 0.0066636;
-	// pixel_height = 0.0066636;
-	
+
 	if (!pixel_width_hight.matches(""))
 	{				
 		jj = pixel_width_hight.indexOf("/");
 		pixel_width = parseFloat( pixel_width_hight.substring(0, jj) );
 		pixel_height = parseFloat( pixel_width_hight.substring(jj + 1, pixel_width_hight.length) );
-		// waitForUser("pixel_height = " + pixel_height);
 		area_normalization = pixel_width * pixel_height; 
 	}	
 	/*
