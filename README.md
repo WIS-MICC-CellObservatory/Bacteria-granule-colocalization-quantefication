@@ -23,17 +23,17 @@ The size and number of all valid bacteria and granules were extracted and used f
 ![image](https://github.com/danidean/Bacteria-granule-quantefication/blob/main/Screenshot%202023-09-18%20110308.png)
 <!-- https://github.com/danidean/Bacteria-granule-quantefication/assets/11374080/16f563e4-48ad-4e2e-afca-e657ec6ac1ff -->
 
-## Workflow
+## Workflow (under the hood)
 1.	Open selected image
 2.	Segment the bacteria and granules
-*  Apply ilastik autocontext classifier to obtain segmentation map model
-* Segment bacteria using thresholding (default) applied to the segmentation map, to output a binary mask followed by hole filling.
-* Filter the masked bacteria ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs. 
-* Run Roi to label image on the bacteria ROIs to generate bacteria labeled image.
-* Segment the granules using thresholding (default) to the segmentation map, to output binary mask.
-* Filter the masked granules ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs.  Apply granules-bacteria colocalization analysis by applying (measuring)   
+3.  Apply ilastik autocontext classifier to obtain segmentation map model
+4.  Segment bacteria using thresholding (default) applied to the segmentation map, to output a binary mask followed by hole filling.
+5.  Filter the masked bacteria ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs. 
+6.  Run Roi to label image on the bacteria ROIs to generate bacteria labeled image.
+7.  Segment the granules using thresholding (default) to the segmentation map, to output binary mask.
+8.  Filter the masked granules ROIs based on size (area) and shape (circularity) metrics to obtain legit bacteria ROIs.  Apply granules-bacteria colocalization analysis by applying (measuring)   
     granules ROIs on bacteria labeled image. This step colocalizes the granules to their respective bacteria.
-* Obtain the area of each granule, the number of granules per bacteria and the average size of the granules per bacteria.
+9.  Obtain the area of each granule, the number of granules per bacteria and the average size of the granules per bacteria.
 
 
 ## Output
@@ -44,37 +44,37 @@ The macro saves the following output files (see below for details):
 4.	The original image with the bacteria and granules ROIs overlays
 
 ## Dependencies
-•	Fiji: https://imagej.net/Fiji
-•	Ilastik pixel classifier (ilastik-1.4.0rc8) https://www.ilastik.org/
-•	Ilastik Fiji Plugin (we used ilastik4ij-1.8.2.jar which is available in: https://sites.imagej.net/Ilastik/plugins/. 
+*	Fiji: https://imagej.net/Fiji
+*	Ilastik pixel classifier (ilastik-1.4.0rc8) https://www.ilastik.org/
+*	Ilastik Fiji Plugin (we used ilastik4ij-1.8.2.jar which is available in: https://sites.imagej.net/Ilastik/plugins/. 
 
 ## User Guide
-•	Run the code (Bacteria_Granule_colocalization_v3.ijm), upon which UI will open:
+*	Run the code (Bacteria_Granule_colocalization_v3.ijm), upon which UI will open:
 
 ![image](https://github.com/danidean/Bacteria-granule-quantefication/assets/11374080/922f8a8d-fc02-4358-a311-2dc6f65c5940)
 
 ## INPUT
-•	Two runs modes are applicable, “directory mode" or “single mode".
--	Directory mode - identifies all the relevant images to be processed and process a file at a time
--	Single mode - a single file is selected for processing.
-•	Classification is based on a pretrained ilastik model. The path to the ilastik app and model should be provided
-•	Several Program-run-modes "degrees of freedom" are provided for processing:
--	Use pre/post classification images
--	redo/skip already classified images, 
--	use original or modified bacteria detection
-•	User provided image units (e.g. [µm/pixel]) and objects (bacteria/granule) thresholds in the same units
+*	Two runs modes are applicable, “directory mode" or “single mode".
+*	Directory mode - identifies all the relevant images to be processed and process a file at a time
+*	Single mode - a single file is selected for processing.
+*	Classification is based on a pretrained ilastik model. The path to the ilastik app and model should be provided
+*	Several Program-run-modes "degrees of freedom" are provided for processing:
+*	Use pre/post classification images
+*	redo/skip already classified images, 
+*	use original or modified bacteria detection
+*	User provided image units (e.g. [µm/pixel]) and objects (bacteria/granule) thresholds in the same units
 
 ## Processing
-•	In whole directory mode, a list of the relevant images is generated and the code loops over the images and processes them sequentially
-•	depending on the selected process option the images are analyzed according to:
--	"Pre-segmentation" / "Post-segmentation" implies whether the image selected has been previously model-based segmented:
+*	In whole directory mode, a list of the relevant images is generated and the code loops over the images and processes them sequentially
+*	depending on the selected process option the images are analyzed according to:
+*	"Pre-segmentation" / "Post-segmentation" implies whether the image selected has been previously model-based segmented:
 "Pre-segmentation" - will run the model on the image and segment (classify) it.
 "Post-segmentation" - will load the previously segmented image and continue the process flow based on it.
 
--	"Redo" / "Skip" implies if to redo the model-based classification even if a classified image exists, when running the "Pre-segmentation":
+*	"Redo" / "Skip" implies if to redo the model-based classification even if a classified image exists, when running the "Pre-segmentation":
 "Redo" - segments again the images.
 "Skip" - skips already segmented images.
--	"Segmentation" / "Update" indicates whether the original model-segmented roiManager is used or a user modified/updated ROIs-roiManager is selected for bacteria/granule processing.
+*	"Segmentation" / "Update" indicates whether the original model-segmented roiManager is used or a user modified/updated ROIs-roiManager is selected for bacteria/granule processing.
 
 Run-Mode selection logic:
 "Pre-segmentation" selection implies "Segmentation" mode;
